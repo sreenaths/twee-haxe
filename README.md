@@ -4,7 +4,7 @@ Twee is a cross platform, cross language tween animation library.
 
 This repo was created specifically for HaXe programming language. Follow my git account for notifications on updates, and releases in other languages.
 
-##Instal Twee
+##Install Twee
 Tween is not yet part if haxelib, and hence cannot be installed directly. Follow either of the following to add the same to your local references.
 
 ###Without GIT in your system :	
