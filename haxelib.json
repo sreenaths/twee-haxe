@@ -1,0 +1,11 @@
+{
+  "name": "twee",
+  "url": "http://github.com/sreenaths/twee-haxe",
+  "license": "MIT",
+  "tags": [ "flash", "cpp", "nme", "js" ],
+  "description": "A simple tweening system for HaXe.",
+  "version": "1.0.0",
+  "releasenote": "First release",
+  "contributors": [ "sreenaths" ],
+  "dependencies": {}
+}
