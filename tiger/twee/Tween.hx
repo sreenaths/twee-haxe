@@ -87,18 +87,18 @@ class Tween implements ITwee{
 		_fromVars = new Array<Float>();
 		
 		if( _fromVarObj && !_toVarObj ){
-			for( propertyName in Reflect.fields(_fromVarObj) ){
-				if( Reflect.hasField(_target,propertyName) ){
+			for ( propertyName in Reflect.fields(_fromVarObj) ) {
+				if( Reflect.getProperty(_target,propertyName)!=null ){
 					_properties[ _propCount ] = propertyName;
 					_fromVars[ _propCount ] = Reflect.getProperty(_fromVarObj,propertyName);
 					_toVars[ _propCount++ ] = Reflect.getProperty(_target,propertyName);
 				}
-			else throw( "Property "+propertyName+" not found in target!" );
+				else throw( "Property "+propertyName+" not found in target!" );
 			}
 		}
 		else if( !_fromVarObj && _toVarObj ){
 			for( propertyName in Reflect.fields(_toVarObj) ){
-				if( Reflect.hasField(_target,propertyName) ){
+				if( Reflect.getProperty(_target,propertyName)!=null ){
 					_properties[ _propCount ] = propertyName;
 					_fromVars[ _propCount ] = Reflect.getProperty(_target,propertyName);
 					_toVars[ _propCount++ ] = Reflect.getProperty(_toVarObj,propertyName);
@@ -108,7 +108,7 @@ class Tween implements ITwee{
 		}
 		else{
 			for(propertyName in Reflect.fields(_fromVarObj) ){
-				if( Reflect.hasField(_target,propertyName) ){
+				if( Reflect.getProperty(_target,propertyName)!=null ){
 					_properties[ _propCount ] = propertyName;
 					_fromVars[ _propCount ] = Reflect.getProperty(_fromVarObj,propertyName);
 					_toVars[ _propCount++ ] = Reflect.getProperty(_toVarObj,propertyName);
@@ -149,7 +149,7 @@ class Tween implements ITwee{
 	
 	private inline function updateProperties():Void {
 		var fromVal:Float;
-		for( i in 0..._propCount ) Reflect.setField(_target, _properties[i], _easing.compute( _timeElapsed, fromVal = _fromVars[i], _toVars[i]-fromVal, _duration ));
+		for( i in 0..._propCount ) Reflect.setProperty(_target, _properties[i], _easing.compute( _timeElapsed, fromVal = _fromVars[i], _toVars[i]-fromVal, _duration ));
 	}
 	
 	private inline function complete():Void {
@@ -233,7 +233,7 @@ class Tween implements ITwee{
 				_tweens[delIndex]._index = delIndex;
 				tweenCount--;
 			}
-			_tweens.splice( tweenCount, delCount );
+			_tweens.splice( tweenCount+1, delCount );
 			_tweensToDel.splice( 0, delCount );
 		}
 		
