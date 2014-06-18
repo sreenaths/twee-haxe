@@ -1,4 +1,6 @@
-#Twee for HaXe 1.0
+#Twee for HaXe
+
+Version: 1.0
 
 Twee is a cross platform, cross language tween animation library. This repo was created specifically for HaXe programming language.
 
