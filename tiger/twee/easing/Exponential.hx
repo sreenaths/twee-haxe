@@ -8,7 +8,7 @@ package tiger.twee.easing;
 
 import tiger.twee.interfaces.IEase;
 
-public class Exponential
+class Exponential
 {
 	public static var easeIn:IEase = new EaseIn();
 	public static var easeOut:IEase = new EaseOut();

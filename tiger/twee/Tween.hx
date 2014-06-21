@@ -81,6 +81,7 @@ class Tween implements ITwee{
 		if ( !_target ) throw( "The instance was destroyed." );
 		
 		var propertyName:String;
+		var propertyVal:Dynamic;
 		
 		_properties = new Array<String>();
 		_toVars = new Array<Float>();
@@ -88,19 +89,21 @@ class Tween implements ITwee{
 		
 		if( _fromVarObj && !_toVarObj ){
 			for ( propertyName in Reflect.fields(_fromVarObj) ) {
-				if( Reflect.getProperty(_target,propertyName)!=null ){
+				propertyVal = Reflect.getProperty(_target, propertyName);
+				if( propertyVal!=null ){
 					_properties[ _propCount ] = propertyName;
 					_fromVars[ _propCount ] = Reflect.getProperty(_fromVarObj,propertyName);
-					_toVars[ _propCount++ ] = Reflect.getProperty(_target,propertyName);
+					_toVars[ _propCount++ ] = propertyVal;
 				}
 				else throw( "Property "+propertyName+" not found in target!" );
 			}
 		}
 		else if( !_fromVarObj && _toVarObj ){
-			for( propertyName in Reflect.fields(_toVarObj) ){
-				if( Reflect.getProperty(_target,propertyName)!=null ){
+			for ( propertyName in Reflect.fields(_toVarObj) ) {
+				propertyVal = Reflect.getProperty(_target, propertyName);
+				if( propertyVal!=null ){
 					_properties[ _propCount ] = propertyName;
-					_fromVars[ _propCount ] = Reflect.getProperty(_target,propertyName);
+					_fromVars[ _propCount ] = propertyVal;
 					_toVars[ _propCount++ ] = Reflect.getProperty(_toVarObj,propertyName);
 				}
 				else throw("Property "+propertyName+" not found in target!" );

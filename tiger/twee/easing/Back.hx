@@ -19,7 +19,7 @@ private class EaseIn implements IEase{
 	
 	private var _overShoot:Float;
 	
-	function new( overShoot:Float=1.70158 ){ _overShoot=overShoot; }
+	public function new( overShoot:Float=1.70158 ){ _overShoot=overShoot; }
 	public function getExtendedInstance( overShoot:Float ):EaseIn{ return new EaseIn(overShoot); }
 	
 	public function compute( t:Float, s:Float, c:Float, d:Float ):Float{
@@ -32,7 +32,7 @@ private class EaseOut implements IEase{
 	
 	private var _overShoot:Float;
 	
-	function new( overShoot:Float=1.70158 ){ _overShoot=overShoot; }
+	public function new( overShoot:Float=1.70158 ){ _overShoot=overShoot; }
 	public function getExtendedInstance( overShoot:Float ):EaseOut{ return new EaseOut(overShoot); }
 	
 	public function compute( t:Float, s:Float, c:Float, d:Float ):Float{
@@ -43,9 +43,10 @@ private class EaseOut implements IEase{
 
 private class EaseInOut implements IEase{
 	
-	private var _overShoot:Float, _overShootTmp:Float;
+	private var _overShoot:Float;
+	private var _overShootTmp:Float;
 	
-	function new( overShoot:Float=1.70158 ){ _overShoot=overShoot; }
+	public function new( overShoot:Float=1.70158 ){ _overShoot=overShoot; }
 	public function getExtendedInstance( overShoot:Float ):EaseInOut{ return new EaseInOut(overShoot); }
 	
 	public function compute( t:Float, s:Float, c:Float, d:Float ):Float{

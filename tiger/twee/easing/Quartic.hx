@@ -10,9 +10,9 @@ import tiger.twee.interfaces.IEase;
 
 class Quartic
 {
-	public static const easeIn:IEase = new EaseIn();
-	public static const easeOut:IEase = new EaseOut();
-	public static const easeInOut:IEase = new EaseInOut();
+	public static var easeIn:IEase = new EaseIn();
+	public static var easeOut:IEase = new EaseOut();
+	public static var easeInOut:IEase = new EaseInOut();
 }
 
 private class EaseIn implements IEase{

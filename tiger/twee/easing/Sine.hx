@@ -6,7 +6,7 @@
 
 package tiger.twee.easing;
 
-import com.tiger.twee.interfaces.IEase;
+import tiger.twee.interfaces.IEase;
 
 class Sine
 {
